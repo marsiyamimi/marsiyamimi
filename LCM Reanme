@@ -1,0 +1,23 @@
+#include<stdio.h>
+int gcd(int,int);
+int lcm(int,int);
+int main(){
+int a,b;
+printf("Enter the value of a:");
+scanf("%d",&a);
+printf("Enter the value of b:");
+scanf("%d",&b);
+gcd(a,b);
+int result=lcm(a,b);
+printf("Result of lcm :%d",result);
+}
+int gcd(int m,int n){
+   if(m%n==0)
+    return n;
+   else
+    return gcd(n,m%n);
+}
+int lcm(int x,int y){
+return ((x*y)/gcd(x,y));
+
+}
