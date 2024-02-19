@@ -1,0 +1,67 @@
+#include<stdio.h>
+int binarysearch(int arr[],int key,int n);
+void searchMulti(int searchkey);
+int main()
+{
+
+    int arr[100],key,i,n,mid,left,right;
+
+    printf("Enter the element :");
+    scanf("%d",&n);
+
+    printf("Enter the sorted array value: ");
+    for(i=0; i<=n; i++)
+    {
+
+        scanf("%d",&arr[i]);
+    }
+
+    printf("Enter the key value :");
+    scanf("%d",&key);
+
+    int result=binarysearch(arr,key,n);
+
+    if(result==-1)
+    {
+   printf("not found");
+         }
+    else
+    {
+         printf("%d is the index of the %d value/n",n,key);
+         searchMulti(key);
+    }
+
+
+    return 0;
+}
+
+
+void searchMulti(int searchkey){
+int count=0,i,n,arr[100];
+for(i=0;i<=n;i++){
+    if(arr[i]==searchkey){
+        count ++;
+    }
+}
+    printf("Searching value is repetade %d times.",count);
+}
+
+int binarysearch(int arr[],int key,int n)
+{
+
+    int left=0, right=n-1 ;
+
+    while(left<=right)
+    {
+        int mid=(left+right)/2;
+
+        if(arr[mid]==key)
+            return mid;
+
+        else if(arr[mid]<key)
+            left=mid+1;
+        else
+            right=mid-1;
+    }
+    return -1;
+}
